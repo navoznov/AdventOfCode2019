@@ -1,9 +1,5 @@
 import math
 
-lines = open('Day02\input.txt').read().split(',')
-numbers = [int(line) for line in lines]
-codes = numbers
-
 
 def getResult(codes, noun, verb):
     counter = 0
@@ -27,5 +23,15 @@ def getResult(codes, noun, verb):
         counter = counter + 4
 
 
-part1 = getResult(codes, 12, 2)
+lines = open('Day02\input.txt').read().split(',')
+codes = [int(line) for line in lines]
+
+#part 1
+part1 = getResult(codes[:], 12, 2)
 print(part1)
+
+#part 2
+for noun in range(100):
+    for verb in range(100):
+        if getResult(codes[:], noun, verb) == 19690720:
+            print(100*noun + verb)
